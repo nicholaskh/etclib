@@ -1,7 +1,7 @@
 package clizk
 
 import (
-	"github.com/nicholaskh/assert"
+	"github.com/funkygao/assert"
 	"testing"
 	"time"
 )

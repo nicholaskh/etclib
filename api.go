@@ -1,7 +1,7 @@
 package etclib
 
 import (
-	"github.com/nicholaskh/etclib/clizk"
+	"github.com/funkygao/etclib/clizk"
 	"time"
 )
 
@@ -10,7 +10,11 @@ func init() {
 }
 
 func Dial(servers []string) error {
-	if err := store.DialTimeout(servers, DEFAULT_DIAL_TIMEOUT*time.Second); err != nil {
+	return DialTimeout(servers, DEFAULT_DIAL_TIMEOUT*time.Second)
+}
+
+func DialTimeout(servers []string, timeout time.Duration) error {
+	if err := store.DialTimeout(servers, timeout); err != nil {
 		store.Close()
 		return err
 	}
