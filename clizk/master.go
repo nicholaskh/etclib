@@ -1,7 +1,7 @@
 package clizk
 
 import (
-	log "github.com/funkygao/log4go"
+	log "github.com/nicholaskh/log4go"
 	"sort"
 )
 

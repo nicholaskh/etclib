@@ -1,7 +1,7 @@
 package clizk
 
 import (
-	"github.com/funkygao/assert"
+	"github.com/nicholaskh/assert"
 	"sort"
 	"testing"
 )

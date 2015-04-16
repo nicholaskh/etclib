@@ -1,7 +1,7 @@
 package clizk
 
 import (
-	log "github.com/funkygao/log4go"
+	log "github.com/nicholaskh/log4go"
 	"github.com/samuel/go-zookeeper/zk"
 	"sync"
 	"time"
@@ -124,8 +124,8 @@ func (this *CliZk) WatchChildren(path string, ch chan []string) (err error) {
 					evt.Type.String(), evt.State.String())
 
 				if evt.Type == zk.EventNodeChildrenChanged {
-					ch <- children
 					children, _, watchEvtChan, err = this.client.ChildrenW(path)
+					ch <- children
 					log.Trace("zk[%+v] renew children watch", this.servers)
 				}
 

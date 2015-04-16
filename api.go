@@ -1,7 +1,7 @@
 package etclib
 
 import (
-	"github.com/funkygao/etclib/clizk"
+	"github.com/nicholaskh/etclib/clizk"
 	"time"
 )
 
@@ -29,6 +29,10 @@ func DialTimeout(servers []string, timeout time.Duration) error {
 		return err
 	}
 	if err := store.Create("/"+SERVICE_ACTOR, "",
+		clizk.FlagNormal); !store.NodeExistsError(err) {
+		return err
+	}
+	if err := store.Create("/"+SERVICE_PUSHD, "",
 		clizk.FlagNormal); !store.NodeExistsError(err) {
 		return err
 	}

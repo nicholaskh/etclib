@@ -1,7 +1,7 @@
 package etclib
 
 import (
-	"github.com/funkygao/assert"
+	"github.com/nicholaskh/assert"
 	"testing"
 )
 
