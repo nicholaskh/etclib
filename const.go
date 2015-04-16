@@ -7,4 +7,5 @@ const (
 const (
 	SERVICE_FAE   = "fae"
 	SERVICE_ACTOR = "actor"
+	SERVICE_PUSHD = "pushd"
 )

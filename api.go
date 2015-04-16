@@ -90,7 +90,7 @@ func Children(path string) ([]string, error) {
 }
 
 func checkService(service string) error {
-	if service != SERVICE_ACTOR && service != SERVICE_FAE {
+	if service != SERVICE_ACTOR && service != SERVICE_FAE && service != SERVICE_PUSHD {
 		return ErrInvalidService
 	}
 
