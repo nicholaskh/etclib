@@ -36,6 +36,14 @@ func DialTimeout(servers []string, timeout time.Duration) error {
 		clizk.FlagNormal); !store.NodeExistsError(err) {
 		return err
 	}
+	if err := store.Create("/"+SERVICE_PIPED, "",
+		clizk.FlagNormal); !store.NodeExistsError(err) {
+		return err
+	}
+	if err := store.Create("/"+SERVICE_GCOLLECTOR, "",
+		clizk.FlagNormal); !store.NodeExistsError(err) {
+		return err
+	}
 
 	return nil
 }
@@ -94,7 +102,11 @@ func Children(path string) ([]string, error) {
 }
 
 func checkService(service string) error {
-	if service != SERVICE_ACTOR && service != SERVICE_FAE && service != SERVICE_PUSHD {
+	if service != SERVICE_ACTOR &&
+		service != SERVICE_FAE &&
+		service != SERVICE_PUSHD &&
+		service != SERVICE_PIPED &&
+		service != SERVICE_GCOLLECTOR {
 		return ErrInvalidService
 	}
 
