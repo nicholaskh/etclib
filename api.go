@@ -22,24 +22,18 @@ func DialTimeout(servers []string, timeout time.Duration) error {
 	// always create, even if node already exists
 	if err := store.Create("/maintain", "",
 		clizk.FlagNormal); err != nil && !store.NodeExistsError(err) {
-		println("aaa")
-		println(err.Error())
 		return err
 	}
-	println("ttt")
 	if err := store.Create("/"+SERVICE_FAE, "",
 		clizk.FlagNormal); err != nil && !store.NodeExistsError(err) {
-		println("bbb")
 		return err
 	}
 	if err := store.Create("/"+SERVICE_ACTOR, "",
 		clizk.FlagNormal); err != nil && !store.NodeExistsError(err) {
-		println("ccc")
 		return err
 	}
 	if err := store.Create("/"+SERVICE_PUSHD, "",
 		clizk.FlagNormal); err != nil && !store.NodeExistsError(err) {
-		println("ddd")
 		return err
 	}
 	if err := store.Create("/"+SERVICE_PIPED, "",
